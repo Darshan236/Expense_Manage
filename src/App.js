@@ -7,6 +7,7 @@ import Signup from './components/Signup';
 import AddExpense from './components/AddExpense';
 import Settle from './components/Settle';
 import Dashboard from './components/Dashboard';
+import Nav from './components/Nav';
 import './App.css';
 import AddGroup from './components/AddGroup'
 
@@ -20,6 +21,7 @@ const App = () => {
 
   return (
       <Router>
+        <Nav/>
         <div>
           <Routes>
             <Route path="/login" element={<Login setUser={setUser} />} />

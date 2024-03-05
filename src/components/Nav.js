@@ -1,7 +1,7 @@
 // Nav.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import './CssFiles/Nav.css'
 const Nav = ({ user, handleLogout }) => {
     return (
         <nav>
