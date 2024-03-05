@@ -1,0 +1,80 @@
+/* Settle.css */
+
+/* Settle.css */
+
+/* Settle.css */
+
+.settle-container {
+    max-width: 600px; /* Increase the maximum width */
+    margin: 50px auto; /* Center the container */
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 50px auto; /* Center the container */
+}
+
+
+
+.settle-container h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.settle-container form .form-element {
+    margin-bottom: 20px;
+}
+
+.settle-container form .label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.settle-container form .select,
+.settle-container form .input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.settle-container form .error {
+    margin-top: 10px;
+    font-size: 16px;
+    color: red;
+}
+
+.settle-container form .button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: rgb(71, 191, 238);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.settle-container form .button:hover {
+    background-color: rgb(13, 63, 83);
+}
+
+.settle-container form .button:focus {
+    outline: none;
+}
+
+.settle-container form .button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.settle-container form .button:disabled:hover {
+    background-color: #ccc;
+}

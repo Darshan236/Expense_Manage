@@ -1,0 +1,74 @@
+/* Settle.css */
+
+.addGroupContainer {
+    max-width: 600px; /* Increase the maximum width */
+    margin: 50px auto;
+    padding: 40px; /* Increase padding */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+  .addGroupContainer h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .addMemberButton {
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .addMemberButton:hover {
+    background-color: #45a049;
+  }
+  
+  .memberItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .removeMemberButton {
+    padding: 4px 8px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .removeMemberButton:hover {
+    background-color: #d32f2f;
+  }
+  
+  .submitButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+  

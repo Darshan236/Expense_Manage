@@ -1,0 +1,45 @@
+/* Dashboard.css */
+
+body {
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+    height: 100vh; /* full height of the viewport */
+}
+
+.dashboard-container {
+    padding: 20px;
+    text-align: center; /* center the text within the container */
+    margin: 20px; /* add margin */
+}
+
+.group-list {
+    list-style: none;
+    padding: 0;
+}
+
+.group-list li {
+    margin-bottom: 10px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button-container button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #555;
+}
