@@ -1,40 +1,26 @@
-// Nav.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './CssFiles/Nav.css'
-const Nav = ({ user, handleLogout }) => {
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import "./CssFiles/Nav.css"
+const Nav = () => {
+    const navigate = useNavigate(); // Initialize useNavigate
+
+    // Function to handle navigation
+    const handleNavigation = (path) => {
+        navigate(path); // Navigate to the specified path
+    };
+
     return (
-        <nav>
+        <div className='nav-bar'>
+            <div className='logo'>
+                <a href='#'>Money Tracker</a>
+            </div>
             <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/add-expense">Add Expense</Link>
-                </li>
-                {user ? (
-                    <li>
-                        <button onClick={handleLogout}>Logout</button>
-                    </li>
-                ) : (
-                    <>
-                        <li>
-                            <Link to="/login">Login</Link>
-                        </li>
-                        <li>
-                            <Link to="/signup">Signup</Link>
-                        </li>
-                        <li>
-                            <Link to="/settle">Settle</Link>
-                        </li>
-                        <li>
-                            <Link to="/add-group">Add Group</Link>
-                        </li>
-                    </>
-                )}
+                <li><a onClick={() => handleNavigation('/dashboard')}>Home</a></li>
+                <li><a onClick={() => handleNavigation('/groups')}>Expenses</a></li>
+                <li><a onClick={() => handleNavigation('/')}>Logout</a></li>
             </ul>
-        </nav>
+        </div>
     );
-};
+}
 
 export default Nav;

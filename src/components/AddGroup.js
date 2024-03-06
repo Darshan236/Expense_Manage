@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import './CssFiles/AddGroup.css' // Import CSS file for styling
-
+import {Link} from "react-router-dom";
+import "./CssFiles/AddGroup.css"
+import Nav from "./Nav";
 const AddGroup = () => {
     const [groupName, setGroupName] = useState('');
     const [memberName, setMemberName] = useState('');
     const [members, setMembers] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleGroupNameChange = (e) => {
         setGroupName(e.target.value);
@@ -15,12 +17,31 @@ const AddGroup = () => {
         setMemberName(e.target.value);
     };
 
-    const handleAddMember = () => {
+    const handleAddMember = async () => {
         if (memberName.trim() !== '') {
-            setMembers([...members, memberName.trim()]);
-            setMemberName('');
+            try {
+                // Check if the member exists in the user table
+
+                const response = await axios.get(`http://localhost:8080/api/users/checkuser/${memberName.trim()}`);
+
+                console.log(response.data);
+
+                if (response.data!="") {
+
+                    setMemberName('');
+                    setErrorMessage('');
+                    const userData = response.data;
+                    setMembers([...members, userData.username]);
+
+                } else {
+                    window.alert("person is not exist");
+                }
+            } catch (error) {
+                console.error('Error checking user:', error);
+            }
         }
     };
+
 
     const handleRemoveMember = (index) => {
         const updatedMembers = [...members];
@@ -32,12 +53,10 @@ const AddGroup = () => {
         e.preventDefault();
         try {
             // Add Group
-            const groupResponse = await axios.post('http://localhost:8080/api/addgroup', { groupName });
+            console.log(groupName,"Mrm: "+members);
+            const groupResponse = await axios.post('http://localhost:8080/api/addgroup', { groupName,members });
             console.log("Group added successfully! " + groupName);
 
-            // Add Members to Group
-            const groupId = groupResponse.data.id; // Assuming the API returns the ID of the newly created group
-            await axios.post(`http://localhost:8080/api/addmembers`, { groupId, members });
             console.log("Members added to group successfully!");
 
             // Reset state after successful submission
@@ -50,36 +69,56 @@ const AddGroup = () => {
     };
 
     return (
-        <div className="addGroupContainer">
-            <h2>Create Group</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Enter group name"
-                    value={groupName}
-                    onChange={handleGroupNameChange}
-                    className="inputField"
-                />
-                <br />
-                <input
-                    type="text"
-                    placeholder="Enter member name"
-                    value={memberName}
-                    onChange={handleMemberNameChange}
-                    className="inputField"
-                />
-                <button type="button" onClick={handleAddMember} className="addMemberButton">Add Member</button>
-                <br />
-                {members.map((member, index) => (
-                    <div key={index} className="memberItem">
-                        <span>{member}</span>
-                        <button type="button" onClick={() => handleRemoveMember(index)} className="removeMemberButton">Remove</button>
+        <>  
+        <Nav />
+        <div className='dashboard-container'>
+            <div className='rounded-blocks'>
+                <div className='left-section'>
+                   
+                </div>
+                <div className='center-section'>
+                    <h2 className='h2'>Create Group</h2>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            placeholder="Enter group name"
+                            value={groupName}
+                            onChange={handleGroupNameChange}
+                            className="inputField"
+                        />
+                        <br/>
+                        <input
+                            type="text"
+                            placeholder="Enter member name"
+                            value={memberName}
+                            onChange={handleMemberNameChange}
+                            className="inputField"
+                        />
+                        <button type="button" onClick={handleAddMember} className="addMemberButton">Add Member</button>
+                        <br/>
+                        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+                        {members.map((member, index) => (
+                            <div key={index} className="memberItem">
+                                <span>{member}</span>
+                                <button type="button" onClick={() => handleRemoveMember(index)}
+                                        className="removeMemberButton">Remove
+                                </button>
+                            </div>
+                        ))}
+                        <br/>
+                        <button type="submit" className="submitButton">Add Group</button>
+
+                    </form>
+                </div>
+                <div className='right-section'>
+                    <div className='activities'>
+                        <h2 className='h2'></h2>
+
                     </div>
-                ))}
-                <br />
-                <button type="submit" className="submitButton">Add Group</button>
-            </form>
+                </div>
+            </div>
         </div>
+        </>
     );
 };
 

@@ -1,66 +1,36 @@
-/* Navbar container */
-.navbar {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
-    padding: 10px 20px;
+.nav-bar {
+    background-color: #6c5ce7;
+    padding: 10px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* Navbar logo */
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333; /* Adjust color as needed */
+  }
+  
+  .logo a {
+    color: #fff;
+    font-size: 24px;
     text-decoration: none;
-}
-
-/* Navbar links */
-.navbar-nav {
+  }
+  
+  ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
-}
-
-.navbar-nav li {
-    margin-right: 15px; /* Adjust spacing between items */
-}
-
-.navbar-nav li:last-child {
-    margin-right: 0; /* No margin for the last item */
-}
-
-.navbar-nav li a {
-    color: #555; /* Adjust color as needed */
+  }
+  
+  ul li {
+    margin-right: 20px;
+  }
+  
+  ul li a {
+    color: #fff;
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease; /* Smooth color transition */
-}
-
-.navbar-nav li a:hover {
-    color: #007bff; /* Change color on hover */
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; /* Stack items vertically on small screens */
-        padding: 10px;
-    }
-
-    .navbar-nav {
-        margin-top: 10px; /* Adjust spacing between items */
-        flex-direction: column;
-    }
-
-    .navbar-nav li {
-        margin-right: 0; /* No margin for items */
-        margin-bottom: 10px; /* Add space between stacked items */
-    }
-
-    .navbar-brand {
-        margin-bottom: 10px; /* Add space between brand and links */
-    }
-}
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  ul li a:hover {
+    color: #ffd166;
+  }
+  

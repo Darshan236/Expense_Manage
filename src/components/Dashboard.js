@@ -1,50 +1,87 @@
-// Dashboard.js
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './CssFiles/Dashboard.css';
-import axios from 'axios';
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Nav from "./Nav";
+import "./CssFiles/Dashboard.css"
 
-const Dashboard = ({ expenses }) => {
-    const [groups, setGroups] = useState([]);
+const Dashboard = ({ moneymanager }) => {
+    const [oweData, setOweData] = useState([]);
+    const [ownData, setOwnData] = useState([]);
+    const [totalData, setTotalData] = useState([]);
+    const [username, setUsername] = useState("");
 
     useEffect(() => {
-        fetchGroups();
+        const uname = localStorage.getItem('uname');
+        setUsername(uname);
+        fetchOweOwnTotalData();
     }, []);
 
-    const fetchGroups = async () => {
+    const fetchOweOwnTotalData = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/groups');
-            console.log(response.data);
-            setGroups(response.data);
+            const uname = localStorage.getItem('uname');
+            const response = await axios.get(`http://localhost:8080/api/users/checkuser/${uname}`);
+            setOweData(response.data.oweAmount);
+            setOwnData(response.data.ownAmount);
+            setTotalData(response.data.totalExpense)
         } catch (error) {
-            console.error('Error fetching groups:', error);
+            console.error('Fetch owe and own data error:', error);
         }
     };
 
+    const handleSettleUp = async () => {
+        if (window.confirm("Are you sure you want to Settle Up?")) {
+            const uname = localStorage.getItem('uname');
+
+            const response1 = await axios.put(`http://localhost:8080/api/settle/${uname}`);
+            if(response1.status==200)
+            {
+                setOweData(0);
+                setOwnData(0);
+            }
+        }};
+
     return (
-        <div className="dashboard-container">
-            <div>
-                <h2>Groups:</h2>
-                <ul className="group-list">
-                    {groups.map(group => (
-                        <li key={group.id}>{group.groupName}</li>
-                    ))}
-                </ul>
-            </div>
-            <div className="button-container">
-                {/* Buttons for navigation */}
-                <Link to="/add-expense">
-                    <button>Add Expense</button>
-                </Link>
-                <Link to="/settle">
-                    <button>Settle</button>
-                </Link>
-                <Link to="/add-group">
-                    <button>Add Group</button>
-                </Link>
+        <>
+        <Nav />
+        <div className='dashboard-container'>
+            <div className='rounded-blocks'>
+                <div className='left-section'>
+                    
+                </div>
+
+                <div className='center-section'>
+                    <h1 className='Dashboard-uname'>HELLO  <span className="username">{username}</span> !</h1>
+                    <div className='button-section'>
+                        <Link to='/addexpense'>
+                            <button className='action-button1'>Add Expense</button>
+                        </Link>
+                        <button className='action-button2' onClick={handleSettleUp}>Settle Up</button>
+                    </div>
+                    <div className='info-boxes'>
+                        <div className='info-box total-expense'>
+                            <p className='infotext'>Total Expense</p>
+                            <p className='infotext'>{totalData}</p>
+                        </div>
+                        <div className='info-box total-owe'>
+                            <p className='infotext'>Total Owe</p>
+                            <p className='infotext' style={{ color: "red" }}>{oweData}</p>
+                        </div>
+                        <div className='info-box your-own'>
+                            <p className='infotext'>Your Own</p>
+                            <strong><p className='infotext' style={{ color: "green" }}>{ownData}</p></strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='right-section'>
+                    <div className='activities'>
+                        <h2 className='h2'></h2>
+                    </div>
+                </div>
             </div>
         </div>
+        </>
     );
-};
+}
 
 export default Dashboard;

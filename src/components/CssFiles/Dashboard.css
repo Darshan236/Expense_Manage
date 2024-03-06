@@ -1,45 +1,104 @@
-/* Dashboard.css */
-
 body {
-    background-color: #222;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center; /* horizontally center */
-    align-items: center; /* vertically center */
-    height: 100vh; /* full height of the viewport */
+  overflow: hidden;
+  background-color: #c7f7ff; /* Light aquamarine */
 }
 
-.dashboard-container {
-    padding: 20px;
-    text-align: center; /* center the text within the container */
-    margin: 20px; /* add margin */
+/* .dashboard-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto; /* Center horizontally */
+ */
+ 
+.rounded-blocks {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
 }
 
-.group-list {
-    list-style: none;
-    padding: 0;
+.left-section {
+  flex: 1;
+  height: 100%; /* Increase left section height */
+  padding: 40px;
 }
 
-.group-list li {
-    margin-bottom: 10px;
+.center-section {
+  flex: 2;
+  height: 100%; /* Increase center section height */
+  padding: 40px;
 }
 
-.button-container {
-    margin-top: 20px;
+.right-section {
+  flex: 1;
+  height: 100%; /* Increase right section height */
+  background-color: #f8f9fa;
 }
 
-.button-container button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-right: 10px;
-    cursor: pointer;
+.Dashboard-uname {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.button-container button:hover {
-    background-color: #555;
+.username {
+  color: #6c5ce7;
+}
+
+.button-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.action-button1,
+.action-button2 {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-button1 {
+  background-color: #007bff;
+}
+
+.action-button2 {
+  background-color: #dc3545;
+}
+
+.info-boxes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-box {
+  flex: 1;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.infotext {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.total-owe .infotext {
+  color: red;
+}
+
+.your-own .infotext {
+  color: green;
+}
+
+.activities {
+  padding: 20px;
 }
