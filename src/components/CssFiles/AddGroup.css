@@ -4,6 +4,11 @@
     background-color: #f0f0f0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+  .fullpage{
+
+    border: 2px solid black;
+    padding: 10%;
+  }
   
   .left-section,
   .center-section,

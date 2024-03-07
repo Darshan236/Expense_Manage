@@ -218,7 +218,7 @@ const AddExpense = () => {
 
     return (
         <>
-        <Nav />
+        <Nav/>
         <div className='dashboard-container'>
             <div className='rounded-blocks'>
                 <div className='left-section'>

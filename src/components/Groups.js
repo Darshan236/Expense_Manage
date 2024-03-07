@@ -45,7 +45,7 @@ const Dashboard = ({ moneymanager }) => {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 100vh;
+                height: 80vh;
                 width: 60%;
                 margin: auto;
                 background-color: #f5f5f5;
@@ -61,17 +61,19 @@ const Dashboard = ({ moneymanager }) => {
 
               .left-section {
                 flex: 1;
-              }
+                height: 80%; /* Decreased height */
+            }
 
-              .center-section {
-                flex: 2;
+            .center-section {
+                flex: 4;
                 padding: 40px;
-              }
+            }
 
-              .right-section {
-                flex: 1;
+            .right-section {
+                flex: 2; /* Increased width */
+                height: 80%; /* Increased height */
                 background-color: #f8f9fa;
-              }
+            }
 
               .activities {
                 padding: 20px;

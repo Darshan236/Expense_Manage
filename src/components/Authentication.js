@@ -2,20 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-// import "./CssFiles/Authentication.css"
+import styles from './CssFiles/Authentication.module.css'; // Import CSS Module
 
 const Authentication = () => {
-
-    const linkStyle = {
-        textDecoration: 'none', // Removes the underline
-        color: 'inherit', // Keeps the default link color
-    };
-
     const [credentials, setCredentials] = useState({
         username: '',
         password: '',
     });
     const navigate = useNavigate();
+
     const handleChange = (e) => {
         setCredentials({
             ...credentials,
@@ -32,7 +27,7 @@ const Authentication = () => {
             if (response.status === 200) {
                 const { token } = response.data;
                 sessionStorage.setItem('token', token);
-                localStorage.setItem('uname',credentials.username);
+                localStorage.setItem('uname', credentials.username);
                 console.log('Login successful!');
                 navigate('/dashboard');
             } else {
@@ -44,24 +39,23 @@ const Authentication = () => {
     };
 
     return (
-        <div className='conatiner'>
-            <div className='center'>
+        <div className={styles.container}> {/* Use className from CSS Module */}
+            <div className={styles.center}>
                 <h1>Login</h1>
                 <form action='' method='POST' onSubmit={handleLogin}>
-                    <div className='txt_field'>
+                    <div className={styles.txt_field}>
                         <input type="text" name="username" required value={credentials.username} onChange={handleChange}/>
                         <span></span>
                         <label>Username</label>
                     </div>
-                    <div className='txt_field'>
+                    <div className={styles.txt_field}>
                         <input type="password" name="password" required value={credentials.password} onChange={handleChange}/>
                         <span></span>
                         <label>Password</label>
                     </div>
-
                     <input name="submit" type="Submit" value="Login"/>
-                    <Link to = "/signup" style={linkStyle}>
-                        <div class="signup_link">
+                    <Link to="/signup">
+                        <div className={styles.signup_link}>
                             Not a Member ? Signup
                         </div>
                     </Link>

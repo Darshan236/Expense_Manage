@@ -1,22 +1,26 @@
 body {
-  overflow: hidden;
-  background-color: #c7f7ff; /* Light aquamarine */
+  /* overflow: hidden; */
+  background-color: #323535; /* Light aquamarine */
 }
 
-/* .dashboard-container {
+.dashboard-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f5f5f5;
+  background-color: #f07c7c;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto; /* Center horizontally */
- */
+  width: 80%; /* Adjust the width as needed */
+  height: 80%; /* Adjust the height as needed */
+  
+}
+
  
 .rounded-blocks {
-  background-color: #fff;
+  background-color: #4a3ab4;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   width: 100%;
