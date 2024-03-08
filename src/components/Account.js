@@ -1,89 +1,124 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 const Account = () => {
-
-    const linkStyle = {
-        textDecoration: 'none', // Removes the underline
-        color: 'inherit', // Keeps the default link color
-    };
-
     const [user, setUser] = useState({
         username: '',
         email: '',
-        password: ''
+        password: '',
+        cpassword: ''
     });
 
-    const handleChange = (e) => {
-        setUser({
-            ...user,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            // Make a POST request to the signup endpoint
-            const response = await fetch('http://localhost:8080/api/users/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // You can add other headers if needed
-                },
-                body: JSON.stringify(user),
-            });
-
-            if (response.ok) {
-
-                const responseData = await response.json();
-                console.log(responseData.message);
-            } else {
-                // If the response status is not OK, handle the error case
-                const errorData = await response.json();
-                console.error('Error during signup:', errorData.error);
-            }
-        } catch (error) {
-            // Handle network errors or other exceptions
-        }
-    };
-
     return (
-        <div className='conatiner'>
-            <div className='center'>
+        <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            margin: '5px',
+            padding: '50px 90px', // Adjusted padding
+            maxWidth: '600px',
+            backgroundColor: '#f5f5f5',
+            borderRadius: '10px',
+            boxShadow: '0 0 20px rgba(0, 0, 0, 0.1)',
+        }}>
+            <div style={{ textAlign: 'center' }}>
                 <h1>Register</h1>
-                <form action='' method='POST' onSubmit={handleSubmit}>
-                    <div className='txt_field'>
-                        <input type="text" name="username" required value={user.username} onChange={handleChange}/>
-                        <label>Name</label>
+                <form>
+                    <div style={{ marginBottom: '20px' }}>
+                        <input type="text" name="username" value={user.username} placeholder="Username" style={{
+                            width: '100%', // Adjusted width
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '5px',
+                            outline: 'none',
+                        }} />
+                        <label style={{
+                            position: 'absolute',
+                            top: '10px',
+                            left: '10px',
+                            pointerEvents: 'none',
+                            color: '#999',
+                            transition: 'all 0.3s ease',
+                            fontSize: '12px',
+                        }}>Name</label>
                     </div>
-                    <div className='txt_field'>
-                        <input type="email" name="email" required value={user.email} onChange={handleChange}/>
-                        <span></span>
-                        <label>Email</label>
+                    <div style={{ marginBottom: '20px' }}>
+                        <input type="email" name="email" value={user.email} placeholder="Email" style={{
+                            width: '100%', // Adjusted width
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '5px',
+                            outline: 'none',
+                        }} />
+                        <label style={{
+                            position: 'absolute',
+                            top: '10px',
+                            left: '10px',
+                            pointerEvents: 'none',
+                            color: '#999',
+                            transition: 'all 0.3s ease',
+                            fontSize: '12px',
+                        }}>Email</label>
                     </div>
-                    <div className='txt_field'>
-                        <input type="password" name="password" required value={user.password} onChange={handleChange}/>
-                        <span></span>
-                        <label>Password</label>
+                    <div style={{ marginBottom: '20px' }}>
+                        <input type="password" name="password" value={user.password} placeholder="Password" style={{
+                            width: '100%', // Adjusted width
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '5px',
+                            outline: 'none',
+                        }} />
+                        <label style={{
+                            position: 'absolute',
+                            top: '10px',
+                            left: '10px',
+                            pointerEvents: 'none',
+                            color: '#999',
+                            transition: 'all 0.3s ease',
+                            fontSize: '12px',
+                        }}>Password</label>
                     </div>
-                    <div className='txt_field'>
-                        <input type="password" name="cpassword" required/>
-                        <span></span>
-                        <label>Confirm Password</label>
+                    <div style={{ marginBottom: '20px' }}>
+                        <input type="password" name="cpassword" placeholder="Confirm Password" style={{
+                            width: '100%', // Adjusted width
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '5px',
+                            outline: 'none',
+                        }} />
+                        <label style={{
+                            position: 'absolute',
+                            top: '10px',
+                            left: '10px',
+                            pointerEvents: 'none',
+                            color: '#999',
+                            transition: 'all 0.3s ease',
+                            fontSize: '12px',
+                        }}>Confirm Password</label>
                     </div>
-                    <input name="submit" type="Submit" value="Sign Up"/>
-                    <Link to = "/" style={linkStyle}>
-                    <div class="signup_link">
-                        Have an Account ? Login
-                    </div>
+                    <input type="submit" value="Sign Up" style={{
+                        width: '100%', // Adjusted width
+                        border: 'none',
+                        outline: 'none',
+                        backgroundColor: '#007bff',
+                        color: '#fff',
+                        padding: '10px',
+                        cursor: 'pointer',
+                        borderRadius: '5px',
+                        transition: 'background-color 0.3s ease',
+                    }} />
+                    <Link to="/" style={{
+                        textAlign: 'center',
+                        marginTop: '20px',
+                        fontSize: '14px',
+                    }}>
+                        <div style={{ color: '#007bff', textDecoration: 'none', fontWeight: 'bold' }}>Have an Account? Login</div>
                     </Link>
                 </form>
             </div>
         </div>
-    )
+    );
 }
 
 export default Account;

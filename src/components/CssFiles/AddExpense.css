@@ -1,13 +1,17 @@
 .dashboard-container {
   display: flex;
+  padding-top: 20px;
   justify-content: center;
   align-items: center;
   height: 84vh;
+  margin-top: 8px;
+  padding-top: 10px;
   background-color: #f0f0f0; /* Background color for the container */
 }
 
 .rounded-blocks {
   display: flex;
+  
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff; /* Background color for the main block */

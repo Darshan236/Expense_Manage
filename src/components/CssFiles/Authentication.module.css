@@ -3,8 +3,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin: 150px;
-  padding: 50px;
+  margin: 0;
+  padding: 10px;
   max-width: 800px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -13,7 +13,7 @@
 
 .center {
   background-color: #fff;
-  padding: 40px;
+  padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   width: 320px;
@@ -35,7 +35,7 @@
 }
 
 .txt_field input {
-  width: 100%;
+  width: calc(100% - 30px); /* Adjust input width */
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -67,7 +67,7 @@
 }
 
 input[type="submit"] {
-  width: 100%;
+  width: calc(100% - 30px); /* Adjust button width */
   border: none;
   outline: none;
   background-color: #007bff;

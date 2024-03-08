@@ -14,8 +14,6 @@ import AddGroup from './components/AddGroup';
 const App = () => {
     const [user, setUser] = useState(null);
     const [expenses, setExpenses] = useState([]);
-
-
     return (
         <Router>
             <div>

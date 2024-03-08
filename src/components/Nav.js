@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import "./CssFiles/Nav.css"
-const Nav = () => {
-    const navigate = useNavigate(); // Initialize useNavigate
+import { useNavigate } from 'react-router-dom';
+import "./CssFiles/Nav.css";
 
-    // Function to handle navigation
+const Nav = () => {
+    const navigate = useNavigate();
+
     const handleNavigation = (path) => {
-        navigate(path); // Navigate to the specified path
+        navigate(path);
     };
 
     return (
