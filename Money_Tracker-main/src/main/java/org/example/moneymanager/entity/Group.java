@@ -43,11 +43,5 @@ public class Group {
         this.groupName = groupName;
     }
 
-//    public List<String> getMembers() {
-//        return members;
-//    }
-//
-//    public void setMembers(List<String> members) {
-//        this.members = members;
-//    }
+
 }

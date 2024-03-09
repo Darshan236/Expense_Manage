@@ -21,7 +21,6 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
-
     @Autowired
     private GroupRepository groupRepository;
 //    @CrossOrigin(origins = "http://localhost:3000")
