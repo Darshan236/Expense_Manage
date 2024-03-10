@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./CssFiles/AddGroup.css";
 import Nav from "./Nav";
 import axios from "axios";
 
@@ -73,9 +72,9 @@ const AddGroup = () => {
             <Nav/>
             <div className='dashboard-container'>
                 <div className='rounded-blocks'>
-                    <div className='left-section'>
+                    {/* <div className='left-section'>
                        
-                    </div>
+                    </div> */}
                     <div className='center-section'>
                         <h2 className='h2'>Create Group</h2>
                         <form onSubmit={handleSubmit}>
@@ -107,11 +106,11 @@ const AddGroup = () => {
                             <button type="submit" className="submitButton">Add Group</button>
                         </form>
                     </div>
-                    <div className='right-section'>
+                    {/* <div className='right-section'>
                         <div className='activities'>
                             <h2 className='h2'></h2>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

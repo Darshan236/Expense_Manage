@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./CssFiles/Nav.css";
-
 const Nav = () => {
     const navigate = useNavigate();
 
@@ -12,7 +11,7 @@ const Nav = () => {
     return (
         <div className='nav-bar'>
             <div className='logo'>
-                <a href='#'>Money Tracker</a>
+                <a href='#'>Expense Tracker</a>
             </div>
             <ul>
                 <li><a onClick={() => handleNavigation('/dashboard')}>Home</a></li>

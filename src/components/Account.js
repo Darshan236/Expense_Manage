@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Account = () => {
+
+    const linkStyle = {
+        textDecoration: 'none', // Removes the underline
+        color: 'inherit', // Keeps the default link color
+    };
+
     const [user, setUser] = useState({
         username: '',
         email: '',
-        password: '',
-        cpassword: ''
+        password: ''
     });
-    
+
     const handleChange = (e) => {
         setUser({
             ...user,
@@ -44,100 +50,39 @@ const Account = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center', paddingTop: '50px' }}>
-            <h1>Register</h1>
-            <form onSubmit={handleSubmit} style={{
-                margin: '0 auto',
-                maxWidth: '320px',
-                padding: '20px',
-                backgroundColor: '#ffffff',
-                borderRadius: '10px',
-                boxShadow: '0 0 20px rgba(0, 0, 0, 0.1)',
-            }}>
-                <div style={{
-                    marginBottom: '20px',
-                    position: 'relative'
-                }}>
-                    <input type="text" name="username" value={user.username} placeholder="Username" onChange={handleChange} style={{
-                        width: '90%',
-                        padding: '10px',
-                        border: '1px solid #ccc',
-                        borderRadius: '5px',
-                        outline: 'none',
-                        fontSize: '16px',
-                        color: '#555',
-                        transition: 'border-color 0.3s ease',
-                    }} />
-                </div>
-                <div style={{
-                    marginBottom: '20px',
-                    position: 'relative'
-                }}>
-                    <input type="email" name="email" value={user.email} placeholder="Email" onChange={handleChange} style={{
-                        width: '90%',
-                        padding: '15px',
-                        border: '1px solid #ccc',
-                        borderRadius: '5px',
-                        outline: 'none',
-                        fontSize: '16px',
-                        color: '#555',
-                        transition: 'border-color 0.3s ease',
-                    }} />
-                </div>
-                <div style={{
-                    marginBottom: '20px',
-                    position: 'relative'
-                }}>
-                    <input type="password" name="password" value={user.password} placeholder="Password" onChange={handleChange} style={{
-                        width: '90%',
-                        padding: '15px',
-                        border: '1px solid #ccc',
-                        borderRadius: '5px',
-                        outline: 'none',
-                        fontSize: '16px',
-                        color: '#555',
-                        transition: 'border-color 0.3s ease',
-                    }} />
-                </div>
-                <div style={{
-                    marginBottom: '20px',
-                    position: 'relative'
-                }}>
-                    <input type="password" name="cpassword" placeholder="Confirm Password" onChange={handleChange} style={{
-                        width: '90%',
-                        padding: '15px',
-                        border: '1px solid #ccc',
-                        borderRadius: '5px',
-                        outline: 'none',
-                        fontSize: '16px',
-                        color: '#555',
-                        transition: 'border-color 0.3s ease',
-                    }} />
-                </div>
-                <input type="submit" value="Sign Up" style={{
-                    width: '100%',
-                    border: 'none',
-                    outline: 'none',
-                    backgroundColor: '#007bff',
-                    color: '#fff',
-                    padding: '15px',
-                    cursor: 'pointer',
-                    borderRadius: '5px',
-                    transition: 'background-color 0.3s ease',
-                }} />
-                <Link to="/" style={{
-                    textAlign: 'center',
-                    marginTop: '20px',
-                    fontSize: '14px',
-                    color: '#007bff',
-                    textDecoration: 'none',
-                    fontWeight: 'bold',
-                }}>
-                    Have an Account? Login
-                </Link>
-            </form>
+        <div className='conatiner'>
+            <div className='center'>
+                <h1>Register</h1>
+                <form action='' method='POST' onSubmit={handleSubmit}>
+                    <div className='txt_field'>
+                        <input type="text" name="username" required value={user.username} onChange={handleChange}/>
+                        <label>Name</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type="email" name="email" required value={user.email} onChange={handleChange}/>
+                        <span></span>
+                        <label>Email</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type="password" name="password" required value={user.password} onChange={handleChange}/>
+                        <span></span>
+                        <label>Password</label>
+                    </div>
+                    <div className='txt_field'>
+                        <input type="password" name="cpassword" required/>
+                        <span></span>
+                        <label>Confirm Password</label>
+                    </div>
+                    <input name="submit" type="Submit" value="Sign Up"/>
+                    <Link to = "/" style={linkStyle}>
+                    <div class="signup_link">
+                        Have an Account ? Login
+                    </div>
+                    </Link>
+                </form>
+            </div>
         </div>
-    );
+    )
 }
 
-export default Account;
+export default Account
