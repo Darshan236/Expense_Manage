@@ -43,6 +43,8 @@ public class UserController {
             user.setPassword((user.getPassword()));
             user.setOweAmount(0);
             user.setOwnAmount(0);
+            user.setTotalExpense(0.0);
+            user.setTotalExpense(user.getTotalExpense());
 
             userRepository.save(user);
 

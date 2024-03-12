@@ -23,31 +23,12 @@ public class GroupController {
 
     @Autowired
     private GroupRepository groupRepository;
-//    @CrossOrigin(origins = "http://localhost:3000")
-//    @PostMapping("/addgroup")
-//    public ResponseEntity<?> addGroup(@RequestBody Group group) {
-//        try {
-//
-//            groupService.saveGroup(group);
-//
-//            Map<String, String> response = new HashMap<>();
-//            response.pu   t("message", group.getGroupName());
-//            return ResponseEntity.ok(response);
-//        } catch (Exception e) {
-//            Map<String, String> response = new HashMap<>();
-//            response.put("error", "Error during Add Group: " + e.getMessage()); // Include the exception message
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-//        }
-//    }
-
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/groups")
     public ResponseEntity<?> getGroup() {
         try {
-
             List<Group> grps= groupService.getAllGroup();
-
 
             Map<String, String> response = new HashMap<>();
             response.put("message","grop sent");
