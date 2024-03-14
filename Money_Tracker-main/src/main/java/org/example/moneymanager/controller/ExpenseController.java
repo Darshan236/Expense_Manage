@@ -63,7 +63,6 @@ public class ExpenseController {
             user2.setOweAmount(user2.getOweAmount() + amount);
             user2.setTotalExpense(user2.getTotalExpense() + amount);
             userRepository.save(user2);
-
         }
 
         return user1;

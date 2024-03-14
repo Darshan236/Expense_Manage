@@ -2,7 +2,6 @@ package org.example.moneymanager.entity;
 
 import jakarta.persistence.*;
 import org.example.moneymanager.entity.Group;
-
 import java.time.LocalDateTime; // Import LocalDateTime
 import java.util.Map;
 
