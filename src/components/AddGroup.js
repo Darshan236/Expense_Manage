@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Nav from "./Nav";
 import axios from "axios";
 
+
 const AddGroup = () => {
     const [groupName, setGroupName] = useState('');
     const [memberName, setMemberName] = useState('');
@@ -47,7 +48,7 @@ const AddGroup = () => {
         updatedMembers.splice(index, 1);
         setMembers(updatedMembers);
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

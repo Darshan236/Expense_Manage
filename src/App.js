@@ -10,7 +10,6 @@ import AddExpense from './components/AddExpense';
 
 import AddGroup from './components/AddGroup';
 
-// import Default from "./components/Default";
 const App = () => {
     const [user, setUser] = useState(null);
     const [expenses, setExpenses] = useState([]);

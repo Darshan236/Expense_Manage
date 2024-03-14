@@ -35,3 +35,6 @@
     color: #ffd166;
   }
   
+  ul li a {
+    cursor: pointer;
+}

@@ -220,67 +220,6 @@ th {
   width: 80%;
 }
 
-
-
-/* .left-section {
-  flex: 1;
-  background: rgb(56, 70, 55);
-  align-items: center;
-} */
-/* .nav-bar {
-  padding: 10px;
-  text-align: center;
-}
-
-.nav-bar ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 90px;
-  align-items: center;
-  color: white;
-}
-
-.nav-bar li a{
-  display: flex;
-  width: 120px;
-  margin-right: 20px;
-  text-align: center;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #fff;
-  padding: 30px;
-  border-radius: 25px;
-  letter-spacing: 2px;
-  transition: all 0.2s ease;
-}
-
-.nav-bar li:last-child {
-  padding: 10px;
-  cursor: pointer;
-  margin-top: 70px;
-} */
-
-/*.logo a {*/
-/*  color: #333;*/
-/*  font-size: 24px;*/
-/*  text-decoration: none;*/
-/*}*/
-
-/*ul {*/
-/*  list-style: none;*/
-/*  padding: 0;*/
-/*}*/
-
-/*ul li {*/
-/*  margin-bottom: 10px;*/
-/*}*/
-
-/*ul li a {*/
-/*  color: #333;*/
-/*  text-decoration: none;*/
-/*}*/
-
-
 .center-section {
   flex: 2 1;
   padding: 20px;
@@ -541,12 +480,11 @@ th {
 }
 
 .Dashboard-uname{
-  color: white;
+  color: rgb(23, 22, 22);
   font-size: 2.5rem;
 }
 
 .username {
-  font-family: 'Lobster', cursive;
   font-size: 2.5rem;
 }
 
